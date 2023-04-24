@@ -1,10 +1,30 @@
-#set page(paper: "us-letter") 
-
+#set page(paper: "us-letter", margin: (y: 5pt)) 
+#show heading: it => [
+#set align(center)
+#set text(12pt)
+  #block(smallcaps(it.body))
+]
 #let results = csv("classes.csv")
 #let results_noheader = results.slice(1)
 
 #for results in results_noheader{
-  [== #results.at(0)
-  pagebreak()]
+  block(breakable: false, width: 100%, [
+  = #results.at(0)
+  #table(
+columns: (auto, 1fr),
+[*Course*], [#results.at(1)],
+[*CRN*], [#results.at(2)],
+[*Credit Hours*], [#results.at(3)],
+[*Instructor*], [#results.at(4)],
+[*Email*], [#results.at(5)],
+[*Delivery Method*], [#results.at(6)],
+[*Times*], [#results.at(7)],
+[*Location*], [#results.at(8)],
+[*Start-End*], [#results.at(9)],
+[*Seats Open*], [#results.at(10)],
+[*Waitlist Slots*], [#results.at(11)],
+[*Attributes*], [#results.at(12)],
+  )
+  ])
 }
 

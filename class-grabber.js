@@ -81,7 +81,8 @@ var csv_data = [
 				// console.log({startend});
 				// console.log({time});
 				classInfo.meetingTimes = time ? `${time} ${days}` : 'N/A';
-				classInfo.location = building ? `${building[0]} ${room[0]}` : 'N/A';
+				classInfo.location = building ? `${building[0]}` : 'N/A';
+				classInfo.location = room ? `${classInfo.location} ${room[0]}` : 'N/A';
 				classInfo.startend = startend ? startend : 'N/A';
                                 if (classInfo.delivery === "Online Hybrid"||classInfo.delivery === "Hybrid"){
                                     let startendSecond = startendRE.exec(cols[j].title);
@@ -96,7 +97,7 @@ var csv_data = [
                             let seatsArr = seatsRE.exec(cols[j].title) 
                             let waitlistArr = waitlistRE.exec(cols[j].title) 
                             classInfo.seats = `${seatsArr[1]}/${seatsArr[2]}`
-                            classInfo.waitlist = `${waitlistArr[1]}/${waitlistArr[2]}`
+                            classInfo.waitlist = waitlistArr ? `${waitlistArr[1]}/${waitlistArr[2]}` : "N/A"
 			} else if (cols[j].dataset.property == 'attribute') {
 			        let attributes = cols[j].textContent;
 				classInfo.attributes = attributes;
