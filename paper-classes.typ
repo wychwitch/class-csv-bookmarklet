@@ -1,4 +1,4 @@
-#set page(paper: "us-letter", margin: (y: 5pt)) 
+#set page(paper: "us-letter", margin: (y: 10pt)) 
 #show heading: it => [
 #set align(center)
 #set text(12pt)
@@ -7,7 +7,8 @@
 #let results = csv("classes.csv")
 #let results_noheader = results.slice(1)
 
-#for results in results_noheader{
+#align(center + horizon, 
+for results in results_noheader{
   block(breakable: false, width: 100%, [
   = #results.at(0)
   #table(
@@ -26,5 +27,5 @@ columns: (auto, 1fr),
 [*Attributes*], [#results.at(12)],
   )
   ])
-}
+})
 

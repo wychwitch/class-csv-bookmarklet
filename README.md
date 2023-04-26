@@ -8,4 +8,4 @@ javascript:(function()%7Blet%20confirmation%20%3D%20confirm(%22Are%20you%20sure%
 ```
 </details>
 
-Use the included typst file to format it if you want!
+Use the included typst file to format it if you want! You can also get the file on the typst site [here](https://typst.app/project/rcA4EtAVROklI7_NYsqaIz)
